@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  password: 
+
+development:
+  <<: *default
+  database: photostore
+
+test:
+  <<: *default
+  database: photostore_test
+
+production:
+  <<: *default
+  database: photostore_production
