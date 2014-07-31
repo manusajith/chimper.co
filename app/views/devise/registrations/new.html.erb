@@ -1,42 +1,86 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
-  <% resource.build_profile %>
-
-  <%= f.fields_for :profile do |detail| %>
-    <div>
-      <%= detail.label :first_name %>
-      <%= detail.text_field :first_name %>
+<div class="section-content no-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 animated flipInY animatedVisi" data-animtype="flipInY" data-animrepeat="0" data-speed="1s" data-delay="0.5s">
+        <h2 class="h2-section-title">Sign Up</h2>
+        <div class="i-section-title">
+          <i class="icon-users-outline">
+          </i>
+        </div>
+        <div class="space-sep20"></div>
+      </div>
     </div>
-    <div>
-      <%= detail.label :last_name %>
-      <%= detail.text_field :last_name %>
-    </div>
-    <div>
-      <%= detail.label :dob %>
-      <%= detail.text_field :dob, class: 'datepicker' %>
-    </div>
-    <div>
-      <%= detail.label :website %>
-      <%= detail.text_field :website %>
-    </div>
-    <div>
-      <%= detail.label :bio %>
-      <%= detail.text_area :bio %>
-    </div>
-  <% end %>
+    <div class="row">
+      <div class="col-md-6 col-sm-6 centered">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'classic-form') do |f| %>
+            <%= devise_error_messages! %>
+            <% resource.build_profile %>
+            <div class="form-group">
+              <label for="email" class="col-sm-3 control-label">Email</label>
+              <div class="col-sm-9">
+                <%= f.email_field :email, autofocus: true, class: 'form-control1' %>
+              </div>
+            </div>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+            <%= f.fields_for :profile do |detail| %>
+              <div class="form-group">
+                <label for="name" class="col-sm-3 control-label">First Name</label>
+                <div class="col-sm-9">
+                  <%= detail.text_field :first_name, class: 'form-control1' %>
+                </div>
+              </div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+              <div class="form-group">
+                <label for="name" class="col-sm-3 control-label">Last Name</label>
+                <div class="col-sm-9">
+                  <%= detail.text_field :last_name, class: 'form-control1' %>
+                </div>
+              </div>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+              <div class="form-group">
+                <label for="name" class="col-sm-3 control-label">Date of Birth</label>
+                <div class="col-sm-9">
+                  <%= detail.text_field :dob, class: 'form-control1 datepicker' %>
+                </div>
+              </div>
 
-<%= render "devise/shared/links" %>
+              <div class="form-group">
+                <label for="name" class="col-sm-3 control-label">Website</label>
+                <div class="col-sm-9">
+                  <%= detail.text_field :website, class: 'form-control1' %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="name" class="col-sm-3 control-label">Website</label>
+                <div class="col-sm-9">
+                  <%= detail.text_area :bio, class: 'form-control1' %>
+                </div>
+              </div>
+            <% end %>
+
+            <div class="form-group">
+              <label for="password" class="col-sm-3 control-label">Password</label>
+              <div class="col-sm-9">
+                <%= f.password_field :password, autocomplete: "off", class: 'form-control1' %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="col-sm-3 control-label">Password</label>
+              <div class="col-sm-9">
+                <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control1' %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-9">
+                <%= f.submit "Sign up", class: "btn btn-block btn-primary" %>
+              </div>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
