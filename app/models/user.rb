@@ -35,6 +35,9 @@ class User < ActiveRecord::Base
 
   has_one :profile
   accepts_nested_attributes_for :profile
+  has_many :images
+  has_many :comments
+  acts_as_voter
 
   def after_initialize
     self.build_profile if self.profile.nil?

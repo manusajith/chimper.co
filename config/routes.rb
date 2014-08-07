@@ -6,9 +6,18 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  root 'images#index'
+
+  get '/todays', to: 'images#todays'
+  get '/trending', to: 'images#trending'
+  get '/popular', to: 'images#popular'
 
   resources :accounts, only: [:show, :edit, :update]
+  resources :images do
+    resources :comments, only: [:show, :create, :update, :destroy]
+    get 'upvote', to: 'vote#upvote'
+    get 'downvote', to: 'vote#downvote'
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

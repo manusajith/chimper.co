@@ -1,0 +1,109 @@
+          <div class="section-content no-padding">
+
+
+            <div class="container">
+
+              <div class="row">
+                <div class="col-md-12 col-sm-12 no-bottom-margin animated" data-animtype="fadeInUp"
+                   data-animrepeat="0"
+                   data-animspeed="1s"
+                   data-animdelay="0.7s">
+                  <center>
+                    <a href="">
+                      <%= image_tag @image.photo.url, class: 'img-responsive ratio' %>
+                    </a>                                    
+                  </center>
+                  <div class="space-sep40"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+<!-- header image end -->
+  <div id="brdr" class="bg section-content section-tabs section-px stones-bg white-text">
+    <div class="container">
+      <div class="row">
+        <div class="pag-align-cent  col-lg-9 ">
+          <div class="txtleft [ panel panel-default ] panel-google-plus">
+            <div class="panel-heading">
+              <%= gravatar @image.user %>
+              <p class="boxc"><%= @image.user.profile.fullname %></p>
+                <h3 id="cl" class="mar_b h3-body-title blog-title">
+                  <a href="#"><%= @image.name %></a>
+                </h3>
+              <div id="clrbk" class="feature-details">
+                <i class="icon-calendar"></i>
+                <span><%= @image.created_at.to_s(:short) %></span>
+                <span class="details-seperator"></span>
+                <span>
+                  <a href="<%= image_upvote_path(@image) %>"><i class="fa fa-thumbs-up"></i><span class="sp-pad"><%= @image.get_upvotes.size %></span></a>
+                  <a href="<%= image_downvote_path(@image) %>"><i class="fa fa-thumbs-down"></i><span class="sp-pad"><%= @image.get_downvotes.size %></span></a>
+                </span>                                                         
+              </div>
+            </div>
+            <div class="panel-body">
+              <p ><strong>About photo </strong><%= @image.description rescue "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit" %></p>
+            </div>
+            <div class="panel-footer">                     
+              <div class="input-placeholder">Add a comment...</div>
+            </div>
+            <div class="panel-google-plus-comment">
+              <img id="imsiz" class="img-circle" src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46" alt="User Image" />
+              <div id="txtsiz" class="panel-google-plus-textarea">
+                <textarea rows="2"></textarea>                                
+                <button type="submit" class="[ btn btn-primary btn-block btn-sm ]">Post</button>
+                <button type="reset" class="[ btn btn-primary btn-block btn-sm ]">Cancel</button>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>        
+      </div>
+    </div>
+  </div>
+  <div class="container">
+  <div class="row">
+   <div class="pag-align-cent col-lg-9">
+
+    <div class="panel panel-default widget">
+      <div class="panel-heading">
+        
+        <h3 class="panel-title">
+          Recent Comments</h3>
+        <span class="label label-info"><span class="t-padd glyphicon glyphicon-comment"></span> 78</span>
+      </div>
+      <div id="omis" class=" panel-body">
+        <ul class="list-group">
+          <% 5.times do %>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="sppad col-xs-2 col-md-1">
+                <%= image_tag 'user.jpg', class: 'img-circle img-responsive' %>
+                </div>
+              <div class="col-xs-10 col-md-11">
+                <div class="special">
+
+                  <div class="mic-info">
+                    By: <a href="#">Bhaumik Patel</a> on 2 Aug 2013
+                  </div>
+                </div>
+                <div class="comment-text">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  
+                </div>
+                 
+              </div>
+            </div>
+          </li>
+          <% end %>
+        </ul>
+        <!-- <a href="#" class="marg btn btn-primary btn-sm btn-block" role="button"><span class="glyphicon glyphicon-refresh"></span> More</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
