@@ -15,6 +15,11 @@ class ImagesController < ApplicationController
     render :index
   end
 
+  def search
+    @images = Image.search_image params[:search_name]
+    render :index
+  end
+
   def new
     @image = Image.new
   end

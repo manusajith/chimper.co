@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/todays', to: 'images#todays'
   get '/trending', to: 'images#trending'
   get '/popular', to: 'images#popular'
+  post '/search', to: 'images#search'
 
   resources :accounts, only: [:show, :edit, :update]
   resources :images do

@@ -33,4 +33,12 @@ class Image < ActiveRecord::Base
   scope :todays, -> { where("created_at >= ?", Time.zone.now.beginning_of_day) }
   scope :trending, -> { where(created_at: Time.now.all_week).order(cached_votes_up: :desc) }
   scope :popular, order(cached_votes_up: :desc)
+
+  def self.search_image search_params
+    if search
+      where("name LIKE?",  "#{search_params}%")
+    else
+      find(:all)
+    end
+  end
 end
