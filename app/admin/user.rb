@@ -17,6 +17,9 @@ ActiveAdmin.register User do
   actions :all, except: [:new, :create, :edit, :update]
 
   filter :email
+  filter :created_at
+  filter :profile_first_name, :as => :string
+
 
   index do
     column :email
