@@ -28,7 +28,7 @@
           <div class="txtleft [ panel panel-default ] panel-google-plus">
             <div class="panel-heading">
               <%= gravatar @image.user %>
-              <p class="boxc"><%= @image.user.profile.fullname %></p>
+              <p class="boxc"><%= link_to "#{@image.user.profile.fullname}", account_path(@image.user) %></p>
                 <h3 id="cl" class="mar_b h3-body-title blog-title">
                   <a href="#"><%= @image.name %></a>
                 </h3>

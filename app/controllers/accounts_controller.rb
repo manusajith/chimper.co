@@ -3,18 +3,16 @@ class AccountsController < ApplicationController
 	before_action :fetch_user, only: [:show]
 
 	def show
-		puts "------------------------"
-		puts @user
+		@images = @user.images
 	end
 
 	def edit
-		@profile = @user.profile
 	end
 
 	def update
 		if @user.update(account_params)
 			flash[:success] = "Profile has been successfully updated.!!"
-			redirect_to accounts_path(@user)
+			redirect_to account_path(@user)
 		else
 			flash[:error] = @user.errors.full_messages.to_sentence
 			render :edit

@@ -75,7 +75,7 @@
                             <h3 id="cl" id="cl" class="mar_b h3-body-title blog-title">
                               <a href="#"><%= image.name %></a>
                             </h3>
-                            <p class="mar_b0"><%= image.user.profile.fullname %></p>
+                            <p class="mar_b0"><%= link_to "#{image.user.profile.fullname}", account_path(image.user) %></p>
                           </div>
                           <div class="feature-details">
                             <i class="icon-calendar"></i>

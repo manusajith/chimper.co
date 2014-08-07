@@ -2,8 +2,7 @@ editing my profile
 
 <%= form_for(@user, url: account_path) do |f| %>
 
-
-  <%= f.fields_for @profile do |detail| %>
+  <%= f.fields_for :profile do |detail| %>
     <div>
       <%= detail.label :first_name %>
       <%= detail.text_field :first_name %>

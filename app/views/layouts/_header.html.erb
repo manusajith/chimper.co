@@ -77,7 +77,7 @@
                                                                 </p>
                                                             </div>
                                                             <div class="col-lg-8">
-                                                                <p class="text-left"><strong><%= current_user.profile.fullname %></strong></p>
+                                                                <p class="text-left"><strong><%= link_to "#{current_user.profile.fullname}", account_path(current_user) %></strong></p>
                                                                 <p class="text-left small"><%= current_user.email %></p>
                                                                 
                                                             </div>
