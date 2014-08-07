@@ -54,6 +54,10 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts_as_commentable_with_threading (1.2.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      awesome_nested_set (>= 2.0)
     acts_as_votable (0.10.0)
     annotate (2.6.5)
       activerecord (>= 2.3.0)
@@ -61,6 +65,8 @@ GEM
     arbre (1.0.1)
       activesupport (>= 3.0.0)
     arel (5.0.1.20140414130214)
+    awesome_nested_set (3.0.0)
+      activerecord (>= 4.0.0, < 5)
     bcrypt (3.1.7)
     bourbon (3.2.3)
       sass (~> 3.2)
@@ -199,6 +205,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  acts_as_commentable_with_threading
   acts_as_votable (~> 0.10.0)
   annotate
   coffee-rails (~> 4.0.0)

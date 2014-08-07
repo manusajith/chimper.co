@@ -25,8 +25,8 @@ class Image < ActiveRecord::Base
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
   belongs_to :user
-  has_many :comments
   acts_as_votable
+  acts_as_commentable
 
   validates_presence_of :name
 

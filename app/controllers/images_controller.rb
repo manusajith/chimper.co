@@ -50,6 +50,9 @@ class ImagesController < ApplicationController
 
   def show
     set_image
+    if user_signed_in?
+      @new_comment = Comment.build_from(@image, current_user.id, "")
+    end
   end
 
   def destroy
