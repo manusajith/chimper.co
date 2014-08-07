@@ -21,7 +21,7 @@
 
 
 <!-- header image end -->
-  <div id="brdr" class="bg section-content section-tabs section-px stones-bg white-text">
+  <div id="brdr2" class="bg section-content section-tabs section-px stones-bg white-text">
     <div class="container">
       <div class="row">
         <div class="pag-align-cent  col-lg-9 ">
@@ -43,11 +43,11 @@
               </div>
             </div>
             <div class="panel-body">
-              <p ><strong>About photo </strong><%= @image.description rescue "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit" %></p>
+              <p ><strong>About photo: </strong><%= @image.description %></p>
             </div>
             <% if user_signed_in? %>
-              <div class="panel-footer">                     
+              <div class="panel-footer"> 
+                <%= link_to "Delete", image_path(@image), method:'delete' , class: 'btn btn-danger btn-sm' if @image.user == current_user %>               
                 <div class="input-placeholder">Add a comment...</div>
               </div>
               <div class="panel-google-plus-comment">

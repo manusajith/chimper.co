@@ -195,6 +195,15 @@
                                                 </span>
                                             </a>                                            
                                         </li>
+                                        <% if user_signed_in? %>
+                                            <li>
+                                                <a href="/images/new">
+                                                    <span class="label-nav btn btn-sm btn-block" style="padding-top:7px !important;">
+                                                        Upload
+                                                    </span>
+                                                </a>                                            
+                                            </li>
+                                        <% end %>
                                     </ul>
 
                                 </nav>
@@ -228,3 +237,4 @@
                     <div class="double-bounce2"></div>
                 </div>
             </div>
+            <div class="main_cont">

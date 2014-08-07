@@ -44,3 +44,17 @@ $(function () {
       }
  });
 });
+
+$(document).ready(function() {
+  function setHeight() {
+    var top = $('.top_wrapper').outerHeight();
+    console.log(top)
+    var bottom = $('footer').outerHeight();
+    console.log(bottom)
+    var totHeight = $(window).height();
+    console.log(totHeight);
+    $('.main_cont').css({ 'height': totHeight - top - bottom +'px' });
+  }
+  $(window).on('resize', function() { setHeight(); });
+  setHeight();
+});
