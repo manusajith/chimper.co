@@ -31,8 +31,6 @@ class Image < ActiveRecord::Base
   validates_presence_of :name
 
   scope :todays, -> { where("created_at >= ?", Time.zone.now.beginning_of_day) }
-  scope :trending, -> { where(created_at: Date.yesterday) }
-  scope :popular, -> { where("created_at >= ?", Time.zone.now.beginning_of_day) }
-
-
+  scope :trending, -> { where(created_at: Time.now.all_week).order(cached_votes_up: :desc) }
+  scope :popular, order(cached_votes_up: :desc)
 end
