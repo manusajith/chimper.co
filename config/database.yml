@@ -16,4 +16,4 @@ test:
 
 production:
   <<: *default
-  database: photostore_production
+  database: photostore

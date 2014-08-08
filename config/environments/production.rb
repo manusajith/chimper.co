@@ -82,4 +82,15 @@ Rails.application.configure do
 
   config.assets.precompile += ['active_admin.js', 'active_admin.css', 'active_admin/print.css']
 
+  secrets = YAML.load(File.open("#{Rails.root}/config/secrets.yml"))[Rails.env]
+
+  Devise.secret_key = secrets['devise_secret']
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'owens-photostore'
+    }
+  }
+
 end

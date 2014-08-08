@@ -15,5 +15,7 @@
 /log/*.log
 /tmp
 config/database.yml
+config/secrets.yml
+config/aws.yml
 
 public/system/*

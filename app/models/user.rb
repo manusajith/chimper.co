@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
-  ADMIN_USERS = ['neo@codingarena.in']
+  ADMIN_USERS = ['neo@codingarena.in', 'oschebell@gmail.com']
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable

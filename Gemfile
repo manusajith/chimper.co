@@ -37,6 +37,7 @@ gem 'annotate'
 gem 'jquery-ui-rails'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'acts_as_commentable_with_threading'
+gem 'aws-sdk'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
