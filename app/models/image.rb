@@ -21,7 +21,8 @@
 #
 
 class Image < ActiveRecord::Base
-  has_attached_file :photo, styles: { medium: "250x250>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :photo,  styles: { thumb: '100x100^',  medium: '250x250^' }, convert_options: { thumbnail: " -gravity center -crop '100x100+0+0'",  medium: " -gravity center -crop '250x250+0+0'" },  default_url: "/images/:style/missing.png" 
+
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
   belongs_to :user
@@ -32,7 +33,7 @@ class Image < ActiveRecord::Base
 
   scope :todays, -> { where("created_at >= ?", Time.zone.now.beginning_of_day) }
   scope :trending, -> { where(created_at: Time.now.all_week).order(cached_votes_up: :desc) }
-  scope :popular, order(cached_votes_up: :desc)
+  scope :popular, -> { where(created_at: Time.now.all_week).order(cached_votes_up: :desc) }
 
   def self.search_image search_params
     if search
