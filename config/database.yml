@@ -1,24 +1,16 @@
-default: &default
+development:
   adapter: postgresql
-  encoding: unicode
-  pool: 5
+  database: photostore
   host: localhost
+  encoding: UTF-8
   username: neo
   password: 
 
-development:
-  <<: *default
-  database: photostore
-
-test:
-  <<: *default
-  database: photostore_test
 
 production:
   adapter: postgresql
-  encoding: unicode
-  pool: 5
+  database: photostore
   host: localhost
+  encoding: UTF-8
   username: neo
   password: 
-  database: photostore
