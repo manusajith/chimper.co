@@ -2087,4 +2087,15 @@ margin-bottom: 2%;
   width: 40px !important;
 }
 
+.feature-details a:hover img {
+  background: #279fbb;
+}
+
+.feature-details img {
+  background: #535353;
+}
+
+.blk {
+  color: #535353;
+}
 /*profile end*/

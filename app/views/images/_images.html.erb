@@ -85,12 +85,11 @@
                               <p class="mar_b0"><%= link_to "#{image.user.profile.fullname}", account_path(image.user) %></p>
                             </div>
                             <div class="feature-details">
-                              <i class="icon-calendar"></i>
-                              <span><%= image.created_at.to_s(:short) %></span>
+                              <a href="<%= image_upvote_path(image) %>"><%= image_tag 'plus-16.png', style: 'width:15' %></a>
+                              <a href="<%= image_downvote_path(image) %>"><%= image_tag 'minus-16.png', style: 'width: 15'%></a>
+                              <%= image.cached_weighted_score %> points
                               <span class="details-seperator"></span>
-                              <a href="<%= image_upvote_path(image) %>"><i class="fa fa-thumbs-up"></i><span><%= image.get_upvotes.size %></span></a>
-                              <a href="<%= image_downvote_path(image) %>"><i class="fa fa-thumbs-down"></i><span><%= image.get_downvotes.size %></span></a>
-                              <a href="#"><i class="icon-comment"></i><span><%= image.comment_threads.size %></span></a>
+                              <a href="#"><i class="icon-comment"></i><span class="blk"><%= image.comment_threads.size %></span></a>
                             </div>        
                           </div>
                         </div>
