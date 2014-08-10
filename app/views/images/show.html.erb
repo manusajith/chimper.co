@@ -37,8 +37,8 @@
                 <span><%= @image.created_at.to_s(:short) %></span>
                 <span class="details-seperator"></span>
                 <span>
-                  <a href="<%= image_upvote_path(@image) %>"><%= image_tag 'plus-16.png', style: 'width:15' %></a>
-                  <a href="<%= image_downvote_path(@image) %>"><%= image_tag 'minus-16.png', style: 'width: 15'%></a>
+                  <a href="<%= image_upvote_path(@image) %>"><%= image_tag 'plus-16.png', style: 'width:15px' %></a>
+                  <a href="<%= image_downvote_path(@image) %>"><%= image_tag 'minus-16.png', style: 'width:15px'%></a>
                   <span class="details-seperator"></span>
                   <%= @image.cached_weighted_score %> points
                 </span>                                                         
