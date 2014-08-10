@@ -42,4 +42,8 @@ class Image < ActiveRecord::Base
       find(:all)
     end
   end
+
+  def self.top_10
+    Image.order('cached_weighted_total DESC').limit(10).map { |image| image.id }
+  end
 end
