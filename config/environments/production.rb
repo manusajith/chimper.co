@@ -90,7 +90,8 @@ Rails.application.configure do
     :storage => :s3,
     :s3_credentials => {
       :bucket => 'owens-photostore'
-    }
+    },
+    :s3_host_name => 's3-us-west-2.amazonaws.com'
   }
 
 end
