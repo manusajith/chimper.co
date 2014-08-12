@@ -2,11 +2,16 @@ class ImagesController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @images = Image.todays
+    @images = Image.trending
   end
 
   def trending
     @images = Image.trending
+    render :index
+  end
+
+  def todays
+    @images = Image.todays
     render :index
   end
 
@@ -27,7 +32,7 @@ class ImagesController < ApplicationController
   def create
     @image = Image.new image_params
     @image.user = current_user
-    if @image.save!
+    if @image.save
       flash[:success] = "Image have been uploaded"
       redirect_to @image
     else

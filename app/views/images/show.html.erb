@@ -1,95 +1,98 @@
-          <div class="section-content no-padding">
-
-
-            <div class="container">
-
-              <div class="row">
-                <div class="col-md-12 col-sm-12 no-bottom-margin animated" data-animtype="fadeInUp"
-                   data-animrepeat="0"
-                   data-animspeed="1s"
-                   data-animdelay="0.7s">
-                  <center>
-                    <a href="">
-                      <%= image_tag @image.photo.url, class: 'img-responsive ratio' %>
-                    </a>                                    
-                  </center>
-                  <div class="space-sep40"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-<!-- header image end -->
-  <div id="brdr2" class="bg section-content section-tabs section-px stones-bg white-text">
-    <div class="container">
-      <div class="row">
-        <div class="pag-align-cent  col-lg-9 ">
-          <div class="txtleft [ panel panel-default ] panel-google-plus">
-            <div class="panel-heading">
-              <%= gravatar @image.user %>
-              <p class="boxc"><%= link_to "#{@image.user.profile.fullname}", account_path(@image.user) %></p>
-                <h3 id="cl" class="mar_b h3-body-title blog-title">
-                  <a href="#"><%= @image.name %></a>
-                </h3>
-              <div id="clrbk" class="feature-details">
-                <i class="icon-calendar"></i>
-                <span><%= @image.created_at.to_s(:short) %></span>
-                <span class="details-seperator"></span>
-                <span>
-                  <a href="<%= image_upvote_path(@image) %>"><%= image_tag 'plus-16.png', style: 'width:15px' %></a>
-                  <a href="<%= image_downvote_path(@image) %>"><%= image_tag 'minus-16.png', style: 'width:15px'%></a>
-                  <span class="details-seperator"></span>
-                  <%= @image.cached_weighted_score %> points
-                </span>                                                         
-              </div>
-            </div>
-            <div class="panel-body">
-              <p ><strong>About photo: </strong><%= @image.description %></p>
-            </div>
-            <% if user_signed_in? %>
-              <div class="panel-footer"> 
-                <%= link_to "Delete", image_path(@image), method:'delete' , class: 'btn btn-danger btn-sm' if @image.user == current_user %>               
-                <div class="input-placeholder">Add a comment...</div>
-              </div>
-              <div class="panel-google-plus-comment">
-                <%= gravatar current_user %>
-                <div id="txtsiz" class="panel-google-plus-textarea">
-                <%= form_for([@image, @new_comment], remote: true) do |f| %>
-                   <%= f.text_area :body, rows: "2", class: 'form-control' %>
-                   <%= f.hidden_field :user_id, value: current_user.id %>
-                   <br>
-                  <button type="submit" class="btn btn-sm pull-right">Post</button>
-                  <button type="reset" class="btn btn-sm pull-right">Cancel</button>
-                <% end %>
-                </div>
-                <div class="clearfix"></div>
-              </div>
-            <% end %>
-          </div>
-        </div>        
-      </div>
-    </div>
-  </div>
+<div class="section-content no-padding">
   <div class="container">
-  <div class="row">
-   <div class="pag-align-cent col-lg-9">
-
-    <div class="panel panel-default widget">
-      <div class="panel-heading">
-        
-        <h3 class="panel-title">
-          Recent Comments</h3>
-        <span class="label label-info"><span class="t-padd glyphicon glyphicon-comment"></span><%= @image.comment_threads.size %></span>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 no-bottom-margin animated" data-animtype="fadeInUp"
+        data-animrepeat="0"
+        data-animspeed="1s"
+        data-animdelay="0.7s">
+        <center>
+          <%= image_tag @image.photo.url(:main), class: 'img-responsive ratio' %>
+        <div style="" class="title-singlepage">
+          <h3 id="cl" class="mar_b h3-body-title blog-title">
+          <a href="#"><%= @image.name %></a>
+          </h3>
+        </div>
+        </center>
+        <div class="space-sep40"></div>
       </div>
-        <% if !@image.root_comments.empty? %>
-          <div id="omis" class=" panel-body">
-            <ul class="list-group" id="comments">
-              <%= render partial: 'comments/comment', collection: @image.comment_threads, as: :comment %>
-            </ul>
-          </div>
-        <% end %>
     </div>
   </div>
 </div>
+<!-- header image end -->
+<div id="brdr2" class="bg section-content section-tabs section-px stones-bg white-text">
+  <div class="container">
+    <div class="row">
+      <div class="pag-align-cent  col-lg-9 ">
+        <div class="txtleft [ panel panel-default ] panel-google-plus">
+          <div class="panel-heading">
+            
+            <%= gravatar @image.user %>
+            
+            <p class="boxc"><%= link_to "#{@image.user.profile.fullname}", account_path(@image.user) %></p>
+            <p class="no-pa"><i>Website </i>:</p>
+            <div id="clrbk" class="feature-details">
+              <i class="icon-calendar"></i>
+              <span><%= @image.created_at.to_s(:short) %></span>
+              <span class="details-seperator"></span>
+              <span>
+              <a href="<%= image_upvote_path(@image) %>" title="Like"><%= image_tag 'plus-32.png', style: 'width:25px'%></a>
+              <a href="<%= image_downvote_path(@image) %>" title="Dislike"><%= image_tag 'minus-32.png', style: 'width:25px'%></a>
+              <span class="details-seperator"></span>
+              <%= @image.cached_weighted_score %> points
+              <span class="details-seperator"></span>
+              <% if user_signed_in? %>
+              <span class="">
+              <%= link_to "Delete Image", image_path(@image), method:'delete' , class: 'btn btn-danger btn-sm' if @image.user == current_user %>
+              </span>
+              <% end %>
+              </span>
+              
+            </div>
+          </div>
+          <!--             <div class="panel-body">
+            <p ><strong>About photo: </strong><%= @image.description %></p>
+          </div> -->
+          <% if user_signed_in? %>
+          <div class="panel-footer">
+            <div class="input-placeholder">Add a comment...</div>
+          </div>
+          <div class="panel-google-plus-comment">
+            <%= gravatar current_user %>
+            <div id="txtsiz" class="panel-google-plus-textarea">
+              <%= form_for([@image, @new_comment], remote: true) do |f| %>
+              <%= f.text_area :body, rows: "2", class: 'form-control' %>
+              <%= f.hidden_field :user_id, value: current_user.id %>
+              <br>
+              <button type="submit" class="btn btn-sm pull-right">Post</button>
+              <button type="reset" class="btn btn-sm pull-right">Cancel</button>
+              <% end %>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="pag-align-cent col-lg-9">
+      <div class="panel panel-default widget">
+        <div class="panel-heading">
+          
+          <h3 class="panel-title">
+          Comments</h3>
+          <span class="label label-info"><span class="t-padd glyphicon glyphicon-comment"></span><%= @image.comment_threads.size %></span>
+        </div>
+        <% if !@image.root_comments.empty? %>
+        <div id="omis" class=" panel-body">
+          <ul class="list-group" id="comments">
+            <%= render partial: 'comments/comment', collection: @image.comment_threads, as: :comment %>
+          </ul>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

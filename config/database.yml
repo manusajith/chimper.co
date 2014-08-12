@@ -3,7 +3,7 @@ development:
   database: photostore
   host: localhost
   encoding: UTF-8
-  username: neo
+  username: postgres
   password: 
 
 
@@ -12,5 +12,5 @@ production:
   database: photostore
   host: localhost
   encoding: UTF-8
-  username: neo
+  username: postgres
   password: 

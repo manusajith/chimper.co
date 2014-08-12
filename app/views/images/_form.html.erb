@@ -1,70 +1,43 @@
+<div class="space-sep40"></div>
+<div class="space-sep40"></div>
 <div class="container">
-    <div class="row">
-        <div class="col-md-12 col-sm-12 animated" data-animtype="flipInY"
-             data-animrepeat="0"
-             data-speed="1s"
-             data-delay="0.5s">
-            <h2 class="h2-section-title">Upload an image</h2>
-            <div class="i-section-title">
-                <i class=""><%= image_tag('add-image-32.png') %>
-                </i>
-            </div>
-
-            <div class="space-sep20"></div>
-        </div>            
+  <div class="row">
+    <div class="col-md-12 col-sm-12 animated" data-animtype="flipInY"
+      data-animrepeat="0"
+      data-speed="1s"
+      data-delay="0.5s">
+      <h2 class="h2-section-title">Upload an image</h2>
+      <div class="i-section-title">
+        <i class=""><%= image_tag('add-image-32.png') %>
+        </i>
+      </div>
+      <div class="space-sep20"></div>
     </div>
-
-    <div class="row">
-
-        <div class="col-md-6 col-sm-6 centered">
-            <div class="classic-formw">
-              <%= form_for @image, html: { multipart: true }, class: 'classic-form' do |f| %>
-                    <div class="form-group">
-                        <label for="email" class="col-sm-3 control-label">Select Image</label>
-                        <div class="col-sm-9">
-                          <%= f.file_field :photo, id: 'image_photo' %>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="name" class="col-sm-3 control-label">Image Name</label>
-                        <div class="col-sm-9">
-                          <%= f.text_field :name, class: 'form-control' %>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="name" class="col-sm-3 control-label">Description</label>
-                        <div class="col-sm-9">
-                          <%= f.text_area :description, class: 'form-control-txtarea' %>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-3 col-sm-9">
-                          <%= f.submit class: 'btn btn-block btn-primary' %>
-                        </div>
-                    </div>
-
-              <% end %>
-            </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-sm-6 centered">
+      <div class="classic-formw">
+        <%= form_for @image, html: { multipart: true }, class: 'classic-form' do |f| %>
+        <div class="form-group">
+          <label for="email" class="col-sm-3 control-label">Select Image</label>
+          <div class="col-sm-9">
+            <%= f.file_field :photo, id: 'image_photo' %>
+          </div>
         </div>
-
+        <div class="form-group">
+          <label for="name" class="col-sm-3 control-label">Image Name</label>
+          <div class="col-sm-9">
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-9">
+            <%= f.submit "Upload", class: 'btn btn-block btn-primary' %>
+          </div>
+        </div>
+        <% end %>
+      </div>
     </div>
+  </div>
 </div>
-
-<script >
-  
-
-$(document).ready(function() {
-  function setHeight() {
-    var top = $('.top_wrapper').outerHeight();
-    console.log(top)
-    var bottom = $('footer').outerHeight();
-    console.log(bottom)
-    var totHeight = $(window).height();
-    console.log(totHeight);
-    $('.main_cont').css({ 'height': totHeight - top - bottom +'px' });
-  }
-  $(window).on('resize', function() { setHeight(); });
-  setHeight();
-});
-
-</script>
+<%= render 'shared/fix_footer' %>

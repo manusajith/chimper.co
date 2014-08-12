@@ -1,0 +1,11 @@
+<% flash.each do |type, message| %>
+  <div class="alert <%= bootstrap_class_for(type) %> alert-dismissable fade in">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+    <%= message %>
+  </div>
+<% end %>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.alert').delay(2000).fadeOut();
+  });
+</script>
