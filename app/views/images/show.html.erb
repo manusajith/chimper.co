@@ -29,7 +29,6 @@
             <%= gravatar @image.user %>
             
             <p class="boxc"><%= link_to "#{@image.user.profile.fullname}", account_path(@image.user) %></p>
-            <p class="no-pa"><i>Website </i>:</p>
             <div id="clrbk" class="feature-details">
               <i class="icon-calendar"></i>
               <span><%= @image.created_at.to_s(:short) %></span>

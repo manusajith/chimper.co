@@ -15,20 +15,14 @@
                 <div class="special">
                   <div class="mic-info">
                     <h3 class="prof"><%= @user.profile.fullname %></h3>
-                    <p class="par-nb"><small>About</small><%= @user.profile.bio %></p>
+                    <p class="par-nb"><small>Bio</small><%= @user.profile.bio %></p>
                   </div>
                 </div>
                 
                 <div id="clrbk" class="m-tp feature-details">
                   <span class="special">
                   <span class="mic-info">
-                  <i class="par-nb"><small>Joined on</small><%= @user.created_at.to_s(:short) %></i>
-                  </span>
-                  </span>
-                  <span class="details-seperator"></span>
-                  <span class="special">
-                  <span class="mic-info">
-                  <i class="par-nb"><small>Phots Uploaded</small><%= @user.images.count %></i>
+                  <i class="par-nb"><small>Photos Uploaded</small><%= @user.images.count %></i>
                   </span>
                   </span>
                 </div>
