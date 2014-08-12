@@ -39,6 +39,12 @@
               <span class="details-seperator"></span>
               <%= @image.cached_weighted_score %> points
               <span class="details-seperator"></span>
+              <span>
+                <div class="fb-share-button" data-href="<%= request.original_url  %>" data-width="100px;"></div>
+              <span class="details-seperator"></span>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= request.original_url %>">Tweet</a>
+              </span>
+              <span class="details-seperator"></span>
               <% if user_signed_in? %>
               <span class="">
               <%= link_to "Delete Image", image_path(@image), method:'delete' , class: 'btn btn-danger btn-sm' if @image.user == current_user %>
@@ -79,18 +85,17 @@
     <div class="pag-align-cent col-lg-9">
       <div class="panel panel-default widget">
         <div class="panel-heading">
-          
           <h3 class="panel-title">
           Comments</h3>
           <span class="label label-info"><span class="t-padd glyphicon glyphicon-comment"></span><%= @image.comment_threads.size %></span>
         </div>
-        <% if !@image.root_comments.empty? %>
         <div id="omis" class=" panel-body">
           <ul class="list-group" id="comments">
-            <%= render partial: 'comments/comment', collection: @image.comment_threads, as: :comment %>
+            <% if !@image.root_comments.empty? %>
+              <%= render partial: 'comments/comment', collection: @image.comment_threads, as: :comment %>
+            <% end %>
           </ul>
         </div>
-        <% end %>
       </div>
     </div>
   </div>
