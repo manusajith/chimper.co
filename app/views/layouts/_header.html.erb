@@ -88,14 +88,28 @@
                         </ul>
                         <% else %>
                         <ul class="nav navbar-nav navbar-right">
-                          <li id="cust">
+                          <li>
+                            <a href="/about"> About </a>
+                          </li>
+                          <li>
+                            &nbsp;
+                          </li>
+                          <li>
                             <%= link_to "Sign in", new_user_session_path, class: 'btn btn-block' %>
                           </li>
+                          
+                         
                         </ul>
+
                         <% end %>
                         <!-- Search Box -->
+
                         <!-- <div class="social-icons">
                           <ul>
+                            <li>
+                              <a href="/about" class="social-media-icon" > About </a>
+                            </li>
+
                             <li>
                               <a href="#" target="_blank" class="social-media-icon facebook-icon" data-original-title="facebook">facebook</a>
                             </li>
@@ -121,6 +135,13 @@
                 <header id="header">
                   <div class="container">
                     <div class="row header">
+                      <div class="wrappp">
+                        <%= form_tag '/search', class: 'search' do %>
+                          <%= image_tag 'search.png' %>                           
+                          <input class="spcl-style" type="text" name="search_name" placeholder="Search your image">               
+                        <% end %>
+                      </div>
+
                       <!-- Logo -->
                       <div class="col-xs-2 logo">
                         <a href="/trending">
