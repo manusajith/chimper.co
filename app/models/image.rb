@@ -35,14 +35,14 @@ class Image < ActiveRecord::Base
   scope :trending, -> { where(created_at:Time.zone.now.all_week).order(cached_weighted_score: :desc) }
   scope :popular, -> { order(cached_weighted_score: :desc) }
 
-  validate :only_one_image
+  # validate :only_one_image
 
   #Users are allowed to upload only one image per day.
   def only_one_image
     if self.user.images.todays.count > 1
       errors.add(:photo, "You have already added an image today, Cant add more images for the day..!!")
     end
-  end 
+  end
 
   def self.search_image search_params
     if search
