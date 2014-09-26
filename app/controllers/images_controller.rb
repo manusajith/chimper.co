@@ -33,7 +33,7 @@ class ImagesController < ApplicationController
     @image = Image.new image_params
     @image.user = current_user
     if @image.save
-      flash[:success] = "Image have been uploaded"
+      flash[:success] = "Image has been uploaded"
       redirect_to @image
     else
       flash[:error] = @image.errors.full_messages.to_sentence
